@@ -1,0 +1,19 @@
+
+
+# Database plan adjustments
+plan: free
+previewPlan: free
+
+# Scaling adjustments
+scaling:
+  minInstances: 1
+  maxInstances: 1
+
+# Ensure minimal hooks and checks
+healthCheckPath: /api/health/
+initialDeployHook: make seed_db_based_on_env
+
+# Minimal environment variables for preview
+- fromGroup: general-settings
+- fromGroup: prod-web-secrets
+- fromGroup: preview-web-secrets
